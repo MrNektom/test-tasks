@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sass/game.sass"/>
+    <script src="js/game.js" type="module"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="pad">
+            <button id="one" v-on:click="recivie(1)"></button>
+            <button id="two" v-on:click="recivie(2)"></button>
+            <button id="three" v-on:click="recivie(3)"></button>
+            <button id="four" v-on:click="recivie(4)"></button>
+        </div>
+        <div>
+            <span id="round"><strong>Round: {{ round }}</strong></span>
+            <br/>
+            <button v-on:click="start" id="start_btn">Start</button><br/>
+            <strong>Difficulty:</strong>
+            <div id="diff_box">
+                <input type="radio" name="diff" id="low" checked v-on:change="difficulty = 0"/>
+                <label for="low">Low</label>
+                <input type="radio" name="diff" id="middle"v-on:change="difficulty = 1"/>
+                <label for="middle">Middle</label>
+                <input type="radio" name="diff" id="high" v-on:change="difficulty = 2"/>
+                <label for="high">High</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sass/style.sass"/>
+    <script src="/1/vuelidate/dist/vuelidate.min.js"></script>
+    <script src="/1/vuelidate/dist/validators.min.js"></script>
+    <script src="js/passport.js" type="module"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form action="/" @submit.prevent="submit">
+            <h1>Регистрация</h1>
+            <label for="surname">Фамилия:*
+            </label>
+            <div :class="{has_error: $v.surname.$anyError}">
+                <input type="text" name="surname" id="surname" v-model.trim="$v.surname.$model" v-bind:class="{ error: $v.surname.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.surname.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.surname.required && $v.surname.$anyError">Это обязательное поле</div>
+                        <div class="error" v-if="!$v.surname.minLength && $v.surname.required && $v.surname.$anyError">Слишком короткое значение</div>
+                        <div class="error" v-if="!$v.surname.cirilyc && $v.surname.$anyError">Фамилия должна быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="name">Имя:*</label>
+            <div :class="{has_error: $v.surname.$anyError}">
+                <input type="text" name="name" id="name" v-model.trim="$v.name.$model" v-bind:class="{ error: $v.name.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.name.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.name.required && $v.name.$anyError">Это обязательное поле</div>
+                        <div class="error" v-if="!$v.name.minLength && $v.name.required && $v.name.$anyError">Слишком короткое значение</div>
+                        <div class="error" v-if="!$v.name.cirilyc && $v.name.$anyError">Имя должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="patronymic">Отчество:</label>
+            <div :class="{has_error: $v.patronymic.$anyError}">
+                <input type="text" name="patronymic" id="patronymic" v-model.trim="$v.patronymic.$model" v-bind:class="{ error: $v.patronymic.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.name.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.patronymic.cirilyc && $v.patronymic.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            
+            <label for="birth_date">Дата рождения:*</label>
+            <div :class="{has_error: $v.birth_date.$anyError}">
+                <input type="date" name="birth_date" id="birth_date" v-model.trim="$v.birth_date.$model" v-bind:class="{ error: $v.birth_date.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.birth_date.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.birth_date.required && $v.birth_date.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            
+            <label for="phone">Номер телефона:*</label>
+            
+            <div :class="{has_error: $v.phone.$anyError}">
+                <input type="text" name="phone" id="phone" v-model.trim="$v.phone.$model" v-bind:class="{ error: $v.phone.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.phone.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.phone.required && $v.phone.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="sex">Пол:</label>
+            <select name="sex" id="sex">
+                <option value="none">Не указано</option>
+                <option value="woman">Женщина</option>
+                <option value="man">Мужчина</option>
+            </select>
+            <label for="group">Группа клиентов:</label>
+            
+            <div :class="{has_error: $v.group.$anyError}">
+                <select name="group" id="group" multiple v-model.trim="$v.group.$model" v-bind:class="{ error: $v.group.$error }">
+                    <option value="vip">VIP</option>
+                    <option value="problematic">Проблемные</option>
+                    <option value="OMS">ОМС</option>
+                </select>
+                <transition name="fade">
+                    <div v-if="$v.group.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.group.required && $v.group.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="doctor">Лечащий врач:</label>
+            <select name="doctor" id="doctor">
+                <option value="ivanov">Иванов</option>
+                <option value="zaharov">Захаров</option>
+                <option value="chernisheva">Чернышева</option>
+            </select>
+            <label for="dont_send_sms">Не отправлять СМС</label>
+            <input type="checkbox" name="dont_send_sms" id="dont_send_sms"/>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</body>
+</html>

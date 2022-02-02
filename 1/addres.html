@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sass/style.sass"/>
+    <script src="/1/vuelidate/dist/vuelidate.min.js"></script>
+    <script src="/1/vuelidate/dist/validators.min.js"></script>
+    <script src="js/addres.js" type="module"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="addres">
+        <form action="/" @submit.prevent="submit">
+            <h1>Регистрация</h1>
+            <label for="index">Индекс:
+            </label>
+            <div :class="{has_error: $v.index.$anyError}">
+                <input type="text" name="index" id="index" v-model.trim="$v.index.$model" v-bind:class="{ error: $v.index.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.index.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.index.required && $v.index.$anyError">Это обязательное поле</div>
+                        <div class="error" v-if="!$v.index.minLength && $v.index.required && $v.index.$anyError">Слишком короткое значение</div>
+                        <div class="error" v-if="!$v.index.cirilyc && $v.index.$anyError">Фамилия должна быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="contry">Страна:</label>
+            <div :class="{has_error: $v.contry.$anyError}">
+                <input type="text" name="contry" id="contry" v-model.trim="$v.contry.$model" v-bind:class="{ error: $v.contry.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.contry.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.contry.required && $v.contry.$anyError">Это обязательное поле</div>
+                        <div class="error" v-if="!$v.contry.minLength && $v.contry.required && $v.contry.$anyError">Слишком короткое значение</div>
+                        <div class="error" v-if="!$v.contry.cirilyc && $v.contry.$anyError">Имя должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="region">Регион:</label>
+            <div :class="{has_error: $v.region.$anyError}">
+                <input type="text" name="region" id="region" v-model.trim="$v.region.$model" v-bind:class="{ error: $v.region.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.region.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.region.cirilyc && $v.region.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="city">Город:*</label>
+            <div :class="{has_error: $v.city.$anyError}">
+                <input type="text" name="city" id="city" v-model.trim="$v.city.$model" v-bind:class="{ error: $v.city.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.city.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.city.required && $v.city.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="street">Улица:</label>
+            <div :class="{has_error: $v.street.$anyError}">
+                <input type="text" name="street" id="street" v-model.trim="$v.street.$model" v-bind:class="{ error: $v.street.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.street.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.street.required && $v.street.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <label for="hous">Дом:</label>
+            <div :class="{has_error: $v.hous.$anyError}">
+                <input type="text" name="hous" id="hous" v-model.trim="$v.hous.$model" v-bind:class="{ error: $v.hous.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.hous.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.hous.required && $v.hous.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+*
+    box-sizing: border-box
+#app 
+    display: flex
+    position: absolute
+    left: 50%
+    top: 100px
+    transform: translateX( -50% )
+    font-size: 20px
+    font-family: Arial, Helvetica, sans-serif
+    box-shadow: 0 5px 30px #0005
+    padding: 50px
+    border-radius: 10px
+    #start_btn
+        font-size: 20px
+        padding: 8px 30px
+        border-radius: 30px
+        border: 0
+        background-color: #0084ff
+        color: #fff
+        margin: 20px 0
+    #pad
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: 1px
+        margin-right: 20px
+        width: 300px
+        height: 300px
+        box-shadow: 0 0 15px #0004
+        border-radius: 50%
+        padding: 5px
+        button
+            border: 1px solid #0005
+        button:active
+            transform: scale(0.97)
+        button:hover
+            opacity: 0.7
+        #one
+            border-radius: 100% 0 0 0
+            background-color: blue
+        #one:hover
+            border-top: 2px solid #000
+            border-left: 2px solid #000
+        #two
+            border-radius: 0 100% 0 0
+            background-color: green
+        #two:hover
+            border-top: 2px solid #000
+            border-right: 2px solid #000
+        #three
+            border-radius: 0 0 0 100%
+            background-color: red
+        #three:hover
+            border-bottom: 2px solid #000
+            border-left: 2px solid #000
+        #four
+            border-radius: 0 0 100% 0
+            background-color: yellow
+        #four:hover
+            border-bottom: 2px solid #000
+            border-right: 2px solid #000
+        button.fire
+            border-color: #fff
+    #diff_box
+        display: grid
+        grid-template-columns: auto 1fr

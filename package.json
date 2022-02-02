@@ -1,0 +1,27 @@
+{
+  "name": "test-tasks",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrNektom/test-tasks.git"
+  },
+  "author": "MrNektom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrNektom/test-tasks/issues"
+  },
+  "homepage": "https://github.com/MrNektom/test-tasks#readme",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "sass": "^1.49.0",
+    "vuelidate": "^0.7.7"
+  }
+}

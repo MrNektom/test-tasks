@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sass/style.sass"/>
+    <script src="/1/vuelidate/dist/vuelidate.min.js"></script>
+    <script src="/1/vuelidate/dist/validators.min.js"></script>
+    <script src="js/passport.js" type="module"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="passport">
+        <form action="/" @submit.prevent="submit">
+            <h1>Паспорт</h1>
+            <label for="type">Тип документа:</label>
+            <select name="doctor" id="doctor">
+                <option value="passport">Паспорт</option>
+                <option value="birth_certificate">Свидетельство о рожении</option>
+                <option value="drivers_license">Водительское удостоверение</option>
+            </select>
+
+            <label for="serial">Серия:</label>
+            <input type="text" name="serial" id="serial" v-model.trim="serial"/>
+
+            <label for="number">Номер:</label>
+            <input type="text" name="number" id="number" v-model.trim="number"/>
+            
+            <label for="issued_by">Кем выдан:</label>
+            <input type="date" name="issued_by" id="issued_by" v-model.trim="issued_by"/>
+            
+            <label for="phone">Дата выдачи:*</label>
+            <div :class="{has_error: $v.date_of_issue.$anyError}">
+                <input type="text" name="date_of_issue" id="date_of_issue" v-model.trim="$v.date_of_issue.$model" v-bind:class="{ error: $v.date_of_issue.$error }"/>
+                <transition name="fade">
+                    <div v-if="$v.date_of_issue.$anyError" class="error_container">
+                        <div class="error" v-if="!$v.phone.required && $v.phone.$anyError">Отчество должно быть кирилицей</div>
+                    </div>
+                </transition>
+            </div>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</body>
+</html>
