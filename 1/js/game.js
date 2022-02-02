@@ -14,10 +14,10 @@ function wait(et, type) {
     })
 }
 let sounds = [
-    new Audio("/1/assets/1.mp3"),
-    new Audio("/1/assets/2.mp3"),
-    new Audio("/1/assets/3.mp3"),
-    new Audio("/1/assets/4.mp3"),
+    new Audio("assets/1.mp3"),
+    new Audio("assets/2.mp3"),
+    new Audio("assets/3.mp3"),
+    new Audio("assets/4.mp3"),
 ]
 
 let app = new Vue({
