@@ -1,0 +1,21 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" height="300" width="300">
+    <ellipse cx="50%" cy="50%" rx="50%" ry="50%" fill="#34ABE0"/>
+    <path d="
+        M 8.5 200 
+        a 150 150 0 0 0 282.5 2
+        l -150 -100 
+        z" fill="#F9EED7"/>
+    <path d="
+        M 291 202
+        L 141 102
+        L 239 29
+        L 239 60
+        L 270 60
+        L 270 90
+        L 288 90
+        A 150 150 0 0 1 291 202" fill="#FF525D"/>
+        <text x="140" y="330" fill="#FFD15C" font-family="cursive" font-size="150" rotate="-40">
+            %
+        </text>
+</svg>
